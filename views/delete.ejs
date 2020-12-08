@@ -1,0 +1,35 @@
+<%- include("partials/header") -%>
+
+
+<div class="container delete-table">
+    <h1> Available Files</h1>
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">File Name</th>
+            <th scope="col">Read File</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% let i = 1 %>
+        <% data.forEach( file => { %>
+            <form action = "/delete" method="POST">
+            <tr>
+                <th scope="row"><%= i++ %></th>
+                <td><%= file %></td>
+                <td>
+                    <button type="submit" name="toBeDeleted" class="btn btn-danger" value = "<%= file %>">
+                        Delete File
+                    </button>
+                </td>
+            </tr>
+        </form>
+        <% });  %>
+    
+    </tbody>
+</table>
+</div>
+</body>
+
+</html>
